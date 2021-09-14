@@ -1,0 +1,24 @@
+11/09/2021
+COUNT & AVARAGE
+1)
+Find the difference between the total number of CITY entries in the table and the number of distinct CITY entries in the table.
+ANS)-
+select count(city) - count(distinct city) from station;
+
+2)
+A median is defined as a number separating the higher half of a data set from the lower half. Query the median of the Northern Latitudes (LAT_N) from STATION and round your answer to 4 decimal places.
+ANS)-
+SELECT Round(st.lat_n, 4) FROM station AS st WHERE (SELECT Count(lat_n) FROM station WHERE lat_n < st.lat_n) = (SELECT Count(lat_n) FROM station WHERE lat_n > st.lat_n);
+
+
+3)
+Query the average population for all cities in CITY, rounded down to the nearest integer.
+ANS)-
+SELECT FLOOR(AVG(POPULATION))
+FROM CITY
+
+4)
+Samantha was tasked with calculating the average monthly salaries for all employees in the EMPLOYEES table, but did not realize her keyboard's 0 key was broken until after completing the calculation. She wants your help finding the difference between her miscalculation (using salaries with any zeros removed), and the actual average salary.
+Write a query calculating the amount of error (i.e.:actual-miscalculated average monthly salaries), and round it up to the next integer.
+ANS)-
+SELECT CEIL(AVG(Salary)-AVG(REPLACE(Salary,'0','')))FROM  EMPLOYEES;
