@@ -1,0 +1,24 @@
+06/09/2021
+SQL WHERE
+1)
+Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+ANS QUERY)-
+SELECT DISTINCT CITY FROM STATION WHERE LEFT(CITY, 1) IN('a','e','i','o','u');
+2)
+Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
+ANS QUERY)-
+SELECT DISTINCT CITY FROM STATION WHERE RIGHT(CITY, 1) IN('a','e','i','o','u');
+
+SQL AND
+1)
+Query all columns for all American cities in the CITY table with populations larger than 100000. The CountryCode for America is USA.
+ANS QUERY)-
+SELECT * FROM CITY WHERE POPULATION > 100000 AND COUNTRYCODE = "USA";
+2)
+Query the NAME field for all American cities in the CITY table with populations larger than 120000. The CountryCode for America is USA.
+ANS QUERY)-
+SELECT NAME FROM CITY WHERE POPULATION > 120000 AND COUNTRYCODE = "USA";
+3)
+Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
+ANS QUERY)-
+SELECT DISTINCT CITY FROM STATION WHERE LEFT(CITY, 1) IN('a','e','i','o','u')AND RIGHT(CITY, 1) IN('a','e','i','o','u');
